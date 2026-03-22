@@ -1,32 +1,22 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #09090f;
-  --foreground: #f4f4f8;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+html {
+  scroll-behavior: smooth;
+  background: #09090f;
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
+  background: #09090f;
+  color: #f4f4f8;
+  font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.font-serif {
-  font-family: "Georgia", "Times New Roman", serif;
-}
-
-.section-divider {
-  border-top: 1px solid rgba(216, 180, 254, 0.08);
 }
 
 .rose-gradient {
@@ -36,6 +26,55 @@ body {
   background-clip: text;
 }
 
+.section-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.marquee-outer {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -43,6 +82,9 @@ body {
   background: #09090f;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(216, 180, 254, 0.2);
-  border-radius: 3px;
+  background: rgba(192, 132, 252, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(192, 132, 252, 0.5);
 }
