@@ -173,7 +173,7 @@ export default function Hero() {
                 quality={95}
                 sizes="(max-width: 768px) 100vw, 400px"
                 className="object-cover"
-                style={{ objectPosition: "center 15%" }}
+                style={{ objectPosition: "center 30%" }}
               />
               {/* Bottom gradient */}
               <div
@@ -209,19 +209,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeSlideIn {
-          from {
-            opacity: 0;
-            transform: translateY(6px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
