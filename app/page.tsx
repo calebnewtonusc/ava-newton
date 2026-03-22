@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MarqueeBanner from "./components/MarqueeBanner";
 import Stats from "./components/Stats";
@@ -10,6 +11,7 @@ import FinalVerdict from "./components/FinalVerdict";
 export default function Home() {
   return (
     <main style={{ background: "#09090f" }}>
+      <Navbar />
       <Hero />
       <MarqueeBanner />
       <Stats />
