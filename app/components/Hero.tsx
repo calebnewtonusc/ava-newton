@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Sparkles, Music, Heart, Star } from "lucide-react";
+import { Sparkles, Music, Heart, Star, ChevronDown } from "lucide-react";
 
 const BIRTH_YEAR = 2009;
 const yearsAsSister = new Date().getFullYear() - BIRTH_YEAR;
@@ -31,7 +31,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center"
       style={{ background: "#09090f" }}
     >
       {/* Background radial gradients */}
@@ -99,6 +99,42 @@ export default function Hero() {
               that Ava Newton is built different.
             </p>
 
+            {/* CTA buttons */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              <a
+                href="#qualities"
+                className="px-7 py-3 rounded-full text-white font-sans font-semibold text-sm tracking-wide transition-all duration-200 cursor-pointer"
+                style={{
+                  background: "linear-gradient(135deg, #f472b6, #c084fc)",
+                  boxShadow: "0 0 32px rgba(192,132,252,0.3)",
+                }}
+              >
+                Read the Case
+              </a>
+              <a
+                href="#moments"
+                className="px-7 py-3 rounded-full font-sans text-sm tracking-wide transition-all duration-200 cursor-pointer"
+                style={{
+                  border: "1px solid rgba(216,180,254,0.2)",
+                  color: "rgba(255,255,255,0.55)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                    "rgba(216,180,254,0.5)";
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    "rgba(255,255,255,0.85)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                    "rgba(216,180,254,0.2)";
+                  (e.currentTarget as HTMLAnchorElement).style.color =
+                    "rgba(255,255,255,0.55)";
+                }}
+              >
+                See the Moments
+              </a>
+            </div>
+
             {/* Floating stat cards */}
             <div className="flex flex-wrap gap-3">
               {[
@@ -156,10 +192,8 @@ export default function Hero() {
             />
 
             <div
-              className="relative rounded-3xl overflow-hidden"
+              className="relative w-72 h-96 md:w-80 md:h-[440px] lg:w-96 lg:h-[520px] rounded-2xl overflow-hidden"
               style={{
-                width: "380px",
-                height: "500px",
                 border: "1px solid rgba(216,180,254,0.2)",
                 boxShadow:
                   "0 0 80px rgba(192,132,252,0.15), 0 32px 64px rgba(0,0,0,0.6)",
@@ -208,6 +242,11 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <ChevronDown className="w-4 h-4 text-white/20" />
       </div>
     </section>
   );
